@@ -43,7 +43,12 @@ class BaseSimulation:
             json.dump(report, f, indent=4)
 
     def plot_spatiotemporal(self, train, test, metadata, filename="spacetime.png"):
-        fig, axes = plt.subplots(2, 1, figsize=(10, 8), sharex=True)
+        fig, axes = plt.subplots(
+            2, 1,
+            figsize=(10, 8),
+            sharex=True,
+            constrained_layout=True
+        )
 
         im1 = axes[0].imshow(train.T, aspect='auto', origin='lower')
         axes[0].set_title(f"Train (F={metadata['F_train']})")
@@ -54,9 +59,8 @@ class BaseSimulation:
         axes[1].set_xlabel("Time")
         axes[1].set_ylabel("Spatial index")
 
-        fig.colorbar(im1, ax=axes, orientation='vertical', label="State value")
+        fig.colorbar(im1, ax=axes, label="State value")
 
-        plt.tight_layout()
         plt.savefig(os.path.join(self.output_dir, filename), dpi=300)
         plt.close()
 
