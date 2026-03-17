@@ -1,0 +1,54 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+dist/
+.eggs/
+*.egg-info/
+pip-wheel-metadata/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data files
+*.h5
+*.hdf5
+
+# Optional: ignore large data directories
+data/
+datasets/
+
+# OS generated files
+Thumbs.db
+
+# Node (if applicable)
+node_modules/
+
+# Misc
+*.tmp
+*.bak
