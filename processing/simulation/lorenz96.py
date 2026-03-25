@@ -28,6 +28,8 @@ class Lorenz96Simulation(BaseSimulation):
         metadata = {
             "F_train": F_train,
             "F_test": F_test,
+            "train_label": f"F={F_train}",
+            "test_label": f"F={F_test}",
             "N": self.N,
             "dt": self.dt,
             "T": T,

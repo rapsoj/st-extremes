@@ -50,12 +50,15 @@ class BaseSimulation:
             constrained_layout=True
         )
 
+        train_label = metadata.get("train_label", "Train")
+        test_label = metadata.get("test_label", "Test")
+
         im1 = axes[0].imshow(train.T, aspect='auto', origin='lower')
-        axes[0].set_title(f"Train (F={metadata['F_train']})")
+        axes[0].set_title(f"Train ({train_label})")
         axes[0].set_ylabel("Spatial index")
 
         im2 = axes[1].imshow(test.T, aspect='auto', origin='lower')
-        axes[1].set_title(f"Test (F={metadata['F_test']})")
+        axes[1].set_title(f"Test ({test_label})")
         axes[1].set_xlabel("Time")
         axes[1].set_ylabel("Spatial index")
 
@@ -67,8 +70,11 @@ class BaseSimulation:
     def plot_timeseries(self, train, test, metadata, filename="timeseries.png"):
         plt.figure(figsize=(10, 4))
 
-        plt.plot(train[:, 0], label=f"Train (F={metadata['F_train']})")
-        plt.plot(test[:, 0], label=f"Test (F={metadata['F_test']})", alpha=0.7)
+        train_label = metadata.get("train_label", "Train")
+        test_label = metadata.get("test_label", "Test")
+
+        plt.plot(train[:, 0], label=f"Train ({train_label})")
+        plt.plot(test[:, 0], label=f"Test ({test_label})", alpha=0.7)
 
         plt.xlabel("Time")
         plt.ylabel("Value")
